@@ -1,0 +1,13 @@
+.card-div-item{
+    position: relative;
+    display: inline-block;
+    width: 20rem;
+    height: 20rem;
+    
+}
+
+.card-img-item{
+    width: 15rem;
+    height: 15rem;
+    align-self: center;
+}
