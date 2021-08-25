@@ -4,22 +4,24 @@ import { useParams } from "react-router-dom";
 import {data} from "./data";
 function ItemDetailContainer() {
     const [product , setProduct] = React.useState([]);
-
+    const [loading, setLoading] = React.useState(false);
     const { id } = useParams();
 
     React.useEffect(() => {
         new Promise((resolve, reject) => {
+            setLoading(true);
             setTimeout(
                 () => resolve(data.filter((item) => item.id == id))
-                , 3000
+                , 1000
                 );
-    }).then((data)=> setProduct(data[0]));
+    }).then((data)=> setProduct(data[0])).finally(()=> setLoading(false));
     }, []);
 
     return (
-      <div>
-        <ItemDetail text="texto enviado de prueba 1" product={product}/>
-      </div>
+        <React.Fragment>
+            {loading ? <h3>Loading...</h3> : <ItemDetail product={product} />}
+        </React.Fragment>
+    
     );
 }
 

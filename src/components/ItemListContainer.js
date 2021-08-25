@@ -2,7 +2,7 @@ import React from "react";
 import {ItemList} from "./ItemList";
 
 
-function ItemListContainer({dataProducts}) {
+function ItemListContainer({dataProducts, searchValue}) {
 
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
@@ -13,9 +13,9 @@ function ItemListContainer({dataProducts}) {
     }).then((dataProducts) => setProducts(dataProducts)).finally(() => setLoading(false));
   },[])
 
-
-
-  return loading ? <h1>Loading..</h1> : (<ItemList dataProducts={products} />);
+  return loading ? <h2>Loading..</h2> : (<ItemList dataProducts={products.filter(
+    (product) => product.title.toLowerCase().includes(searchValue.toLowerCase())
+  )} />);
 }
 
 export {ItemListContainer};

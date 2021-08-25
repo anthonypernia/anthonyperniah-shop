@@ -5,7 +5,7 @@ const data = [
         price: "120",
         stock: 12,
         description: "100% Soft and Luxurious Cotton",
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/anaconda1.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/anaconda1.png?raw=true"
     },
     {
         id: "2",
@@ -13,7 +13,7 @@ const data = [
         price: "120",
         stock: 23,
         description: "100% Soft and Luxurious Cotton",
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/anaconda2.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/anaconda2.png?raw=true"
     },
     {
         id: "3",
@@ -21,7 +21,7 @@ const data = [
         price: "120",
         stock: 12,
         description: "100% Soft and Luxurious Cotton",
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/js1.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/js1.png?raw=true"
     },
     {
         id: "4",
@@ -29,7 +29,7 @@ const data = [
         price: "120",
         stock: 14,
         description: "100% Soft and Luxurious Cotton",
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/js2.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/js2.png?raw=true"
     },
     {
         id: "5",
@@ -37,14 +37,14 @@ const data = [
         price: "120",
         stock: 10,
         description: "100% Soft and Luxurious Cotton",
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/python1.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/python1.png?raw=true"
     },
     {
         id: "6",
         title: "T-Shirt (Python) Black",
         price: "120",
         stock:100,
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/python2.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/python2.png?raw=true"
     },
     {
         id: "7",
@@ -52,7 +52,7 @@ const data = [
         price: "120",
         stock:100,
         description: "100% Soft and Luxurious Cotton",
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/react1.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/react1.png?raw=true"
     },
     {
         id: "8",
@@ -60,7 +60,7 @@ const data = [
         price: "120",
         stock:13,
         description: "100% Soft and Luxurious Cotton",
-        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/images/react2.png?raw=true"
+        picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/react2.png?raw=true"
     }
   ];
 
