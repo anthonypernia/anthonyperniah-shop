@@ -13,8 +13,8 @@ function ItemListContainer({dataProducts, searchValue}) {
     new Promise((resolve, reject) => {
       setLoading(true);
       setTimeout(() => resolve(dataProducts), 3000);
-    }).then((dataProducts) => setProducts(dataProducts)).finally(() => setLoading(false));
-  },[])
+    }).then((dataProducts) => setProducts(categoryId ? dataProducts.filter(product => product.category == categoryId) : dataProducts)).finally(() => setLoading(false));
+  },[categoryId])
 
   return loading ? <h2>Loading..</h2> : (<ItemList dataProducts={products.filter(
     (product) => product.title.toLowerCase().includes(searchValue.toLowerCase() )
