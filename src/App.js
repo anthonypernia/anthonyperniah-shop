@@ -12,12 +12,16 @@ function App() {
   const [dataCart, setDataCart] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [dataProducts, setDataProducts] = React.useState(data);
+  
   return (
     <CartContext.Provider value = {dataCart}>
       <BrowserRouter>
         <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
         <Switch>
           <Route exact path="/">
+            <ItemListContainer  dataProducts = {dataProducts} searchValue={searchValue} />
+          </Route>
+          <Route exact path="/category/:categoryId">
             <ItemListContainer  dataProducts = {dataProducts} searchValue={searchValue} />
           </Route>
           <Route exact path="/item/:id">

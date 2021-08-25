@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 
 function NavBar({searchValue, setSearchValue}){
@@ -17,25 +17,17 @@ function NavBar({searchValue, setSearchValue}){
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                  <Link to={`/`} className="nav-link" href="#">Home <span className="sr-only">(current)</span></Link>
+                  <NavLink to={`/`} className = "nav-link" activeClassName="currentCategory" href="#">Home<span className="sr-only">(current)</span></NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Link</a>
-                </li>
-                <li className="nav-item dropdown">
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">Something else here</a>
-                  </div>
+                  <NavLink to={`/category/${1}`} className = "nav-link" activeClassName="currentCategory" href="#">Category Black<span className="sr-only">(current)</span></NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link disabled" href="#">Disabled</a>
+                <NavLink to={`/category/${2}`} className = "nav-link" activeClassName=" currentCategory" href="#">Category White<span className="sr-only">(current)</span></NavLink>
                 </li>
               </ul>
-                <input onChange={onSearchValueChange} value={searchValue} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                <img />  
+                <input onChange={onSearchValueChange} value={searchValue} className="form-control col-4 mr-sm-2" type="search" placeholder="Search your T-shirt" aria-label="Search"/>
+                <img src="https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/cart.png?raw=true" />  
             </div>
           </nav>
     );
