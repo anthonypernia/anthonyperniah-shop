@@ -19,7 +19,7 @@ function ItemDetailContainer() {
 
     return (
         <React.Fragment>
-            {loading ? <h3>Loading...</h3> : <ItemDetail product={product} />}
+            {loading ? <h3 className="align-self-center">Loading...</h3> : <ItemDetail product={product} />}
         </React.Fragment>
     
     );

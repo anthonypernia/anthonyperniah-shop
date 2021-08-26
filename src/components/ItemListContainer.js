@@ -4,9 +4,7 @@ import { useParams } from "react-router-dom";
 
 function ItemListContainer({dataProducts, searchValue}) {
   const { categoryId } = useParams();
-  let filteredProducts = categoryId ? dataProducts.filter(product => product.category == categoryId) : dataProducts;
-
-  console.log(filteredProducts);
+  
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
@@ -16,7 +14,7 @@ function ItemListContainer({dataProducts, searchValue}) {
     }).then((dataProducts) => setProducts(categoryId ? dataProducts.filter(product => product.category == categoryId) : dataProducts)).finally(() => setLoading(false));
   },[categoryId])
 
-  return loading ? <h2>Loading..</h2> : (<ItemList dataProducts={products.filter(
+  return loading ? <h2 className="col-12 d-flex align-items-center" >Loading..</h2> : (<ItemList dataProducts={products.filter(
     (product) => product.title.toLowerCase().includes(searchValue.toLowerCase() )
   )} />);
 }

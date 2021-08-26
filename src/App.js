@@ -5,6 +5,7 @@ import {NavBar} from './components/NavBar';
 import {data} from './components/data'
 import { ItemDetailContainer } from './components/ItemDetailContainer';
 import { CartContext } from './context/cartContext';
+import { CartContainer } from './components/CartContainer';
 
 import './App.css';
 
@@ -18,14 +19,17 @@ function App() {
       <BrowserRouter>
         <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
         <Switch>
-          <Route exact path="/">
-            <ItemListContainer  dataProducts = {dataProducts} searchValue={searchValue} />
-          </Route>
-          <Route exact path="/category/:categoryId">
+          <Route exact path={["/", "/category/:categoryId"]}>
             <ItemListContainer  dataProducts = {dataProducts} searchValue={searchValue} />
           </Route>
           <Route exact path="/item/:id">
             <ItemDetailContainer dataProducts = {dataProducts} />
+          </Route>
+          <Route exact path="/item/:id">
+            <ItemDetailContainer dataProducts = {dataProducts} />
+          </Route>
+          <Route exact path="/cart/">
+            <CartContainer />
           </Route>
         </Switch>
 
