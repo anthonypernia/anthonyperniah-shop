@@ -20,10 +20,10 @@ function NavBar({searchValue, setSearchValue}){
                   <NavLink to={`/`} className = "nav-link" activeClassName="currentCategory" href="#">Home<span className="sr-only">(current)</span></NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={`/category/${1}`} className = "nav-link" activeClassName="currentCategory" href="#">Category Black<span className="sr-only">(current)</span></NavLink>
+                  <NavLink to={`/category/${1}`} className = "nav-link" activeClassName="currentCategory" href="#">Category White<span className="sr-only">(current)</span></NavLink>
                 </li>
                 <li className="nav-item">
-                <NavLink to={`/category/${2}`} className = "nav-link" activeClassName=" currentCategory" href="#">Category White<span className="sr-only">(current)</span></NavLink>
+                <NavLink to={`/category/${2}`} className = "nav-link" activeClassName=" currentCategory" href="#">Category Black<span className="sr-only">(current)</span></NavLink>
                 </li>
               </ul>
                 <input onChange={onSearchValueChange} value={searchValue} className="form-control col-4 mr-sm-2" type="search" placeholder="Search your T-shirt" aria-label="Search"/>

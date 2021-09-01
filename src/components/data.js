@@ -22,7 +22,7 @@ const data = [
         title: "T-Shirt (Javascript) White",
         price: "120",
         stock: 12,
-        category: 2,
+        category: 1,
         description: "100% Soft and Luxurious Cotton",
         picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/js1.png?raw=true"
     },

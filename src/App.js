@@ -4,7 +4,8 @@ import {ItemListContainer} from './components/ItemListContainer';
 import {NavBar} from './components/NavBar';
 import {data} from './components/data'
 import { ItemDetailContainer } from './components/ItemDetailContainer';
-import { CartContext } from './context/cartContext';
+import { CartContext } from './context/CartContext';
+import { CartProvider } from './context/CartContext';
 import { CartContainer } from './components/CartContainer';
 
 import './App.css';
@@ -15,7 +16,7 @@ function App() {
   const [dataProducts, setDataProducts] = React.useState(data);
   
   return (
-    <CartContext.Provider value = {dataCart}>
+    <CartProvider >
       <BrowserRouter>
         <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
         <Switch>
@@ -34,7 +35,7 @@ function App() {
         </Switch>
 
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
 
   );
 }

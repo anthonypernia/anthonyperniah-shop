@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../context/cartContext";
+import {cartContext}  from "../context/CartContext";
 import { ItemCount } from "./ItemCount";
 
 
 function ItemDetail(props) {
   const text = props.text;
   const product = props.product;
-  const cartValue = useContext(CartContext);
+  const {products , setProducts} = useContext(cartContext);
+  
   const [dataCartCount, setDataCartCount] = React.useState(1);
+
 
   return (
     <div className="card container">
@@ -31,7 +33,7 @@ function ItemDetail(props) {
             stock={product.stock}
           />
         <div className="row justify-content-center">
-            { dataCartCount>0 ? <Link to={`/cart/`} className="col-2 btn btn-outline-dark ml-4 mr-4 mt-4"> Buy </Link>:''}
+            { dataCartCount>0 ? <Link to={`/cart/`} onClick={ ()=>{ setProducts({product, dataCartCount}) } } className="col-2 btn btn-outline-dark ml-4 mr-4 mt-4"> Buy </Link>:''}
         </div>
         </div>
       </div>
