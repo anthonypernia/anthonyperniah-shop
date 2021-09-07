@@ -50,6 +50,7 @@ const data = [
         price: "120",
         stock:100,
         category: 2,
+        description: "100% Soft and Luxurious Cotton",
         picture_url: "https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/python2.png?raw=true"
     },
     {

@@ -6,7 +6,7 @@ function Item(props){
     const product = props.product;
     return (
         <div className="col-3 container">
-            <div className="card">
+            <div className="card card-item-main">
                 <img className="card-img-top card-img-item" src={product.picture_url} alt="Card image cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{product.title}</h5>

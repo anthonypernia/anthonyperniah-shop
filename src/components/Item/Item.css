@@ -1,9 +1,11 @@
-.card-div-item{
+.card-item-main{
+    background-color: #FAFAFA;
     position: relative;
-    display: inline-block;
-    width: 20rem;
-    height: 20rem;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
 }
 
 .card-img-item{
