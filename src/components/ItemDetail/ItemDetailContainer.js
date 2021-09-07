@@ -1,7 +1,7 @@
 import React from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import {data} from "./data";
+import {data} from "../data";
 function ItemDetailContainer() {
     const [product , setProduct] = React.useState([]);
     const [loading, setLoading] = React.useState(false);
@@ -12,7 +12,7 @@ function ItemDetailContainer() {
             setLoading(true);
             setTimeout(
                 () => resolve(data.filter((item) => item.id == id))
-                , 1000
+                , 100
                 );
     }).then((data)=> setProduct(data[0])).finally(()=> setLoading(false));
     }, []);

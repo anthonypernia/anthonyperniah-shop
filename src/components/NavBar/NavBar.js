@@ -1,14 +1,15 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
-
+import { CartWidget } from "../Cart/CarWidget";
+import {cartContext} from "../../context/CartContext";
 
 function NavBar({searchValue, setSearchValue}){
-
+  const {countProducts} = React.useContext(cartContext);
     const onSearchValueChange = (e) => {
       console.log(e.target.value);
       setSearchValue(e.target.value);
     }
-
+    
     return(
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to={`/`}  className="navbar-brand" href="#">Anthony-Shop</Link>
@@ -27,7 +28,8 @@ function NavBar({searchValue, setSearchValue}){
                 </li>
               </ul>
                 <input onChange={onSearchValueChange} value={searchValue} className="form-control col-4 mr-sm-2" type="search" placeholder="Search your T-shirt" aria-label="Search"/>
-                <img src="https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/img/cart.png?raw=true" />  
+                {countProducts() > 0 && <CartWidget count = {countProducts()}/>}
+                
             </div>
           </nav>
     );

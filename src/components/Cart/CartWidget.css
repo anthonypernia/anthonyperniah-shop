@@ -1,0 +1,17 @@
+
+
+.cart-widget{
+    align-items: center;
+    display: flex;
+}
+
+.img-navbar-cart{
+    width: 40px;
+    height: 40px;
+}
+
+.cart-widget-text{
+    font-size: 12px;
+    font-weight: bold;
+    float: inline-start;
+}

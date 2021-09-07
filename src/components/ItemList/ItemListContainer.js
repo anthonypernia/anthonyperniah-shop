@@ -1,5 +1,5 @@
 import React from "react";
-import {ItemList} from "./ItemList";
+import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
 
 function ItemListContainer({dataProducts, searchValue}) {
@@ -10,7 +10,7 @@ function ItemListContainer({dataProducts, searchValue}) {
   React.useEffect(() => {
     new Promise((resolve, reject) => {
       setLoading(true);
-      setTimeout(() => resolve(dataProducts), 3000);
+      setTimeout(() => resolve(dataProducts), 100);
     }).then((dataProducts) => setProducts(categoryId ? dataProducts.filter(product => product.category == categoryId) : dataProducts)).finally(() => setLoading(false));
   },[categoryId])
 

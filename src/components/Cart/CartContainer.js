@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Cart} from "../components/Cart"
+import {Cart} from "./Cart"
 
 function CartContainer(){
     
