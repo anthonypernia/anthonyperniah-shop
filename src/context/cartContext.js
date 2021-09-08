@@ -23,7 +23,7 @@ const CartProvider = ({ test, children }) => {
         } else {
             newProducts[index].quantity = newProducts[index].quantity + product.quantity;
         }
-        console.log(newProducts);
+
         setProducts(newProducts);
     }
 

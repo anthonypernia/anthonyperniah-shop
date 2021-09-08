@@ -10,10 +10,13 @@ import { CartContainer } from './components/Cart/CartContainer';
 
 import './App.css';
 
+
 function App() {
   const [dataCart, setDataCart] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [dataProducts, setDataProducts] = React.useState(data);
+
+
   
   return (
     <CartProvider >
@@ -33,7 +36,6 @@ function App() {
             <CartContainer />
           </Route>
         </Switch>
-
       </BrowserRouter>
     </CartProvider>
 

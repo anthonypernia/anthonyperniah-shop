@@ -6,7 +6,7 @@ import { ItemCount } from "../ItemCount/ItemCount";
 
 
 function ItemDetail(props) {
-  const text = props.text;
+
   const product = props.product;
   const {products , addProduct} = useContext(cartContext);
   
