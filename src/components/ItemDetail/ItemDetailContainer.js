@@ -1,7 +1,6 @@
 import React from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import {data} from "../data";
 import { getData } from '../../DataCloud/firebaseAuth'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
