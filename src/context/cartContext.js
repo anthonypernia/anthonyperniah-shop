@@ -1,6 +1,6 @@
 import React from "react";
 
-const cartContext = React.createContext({});
+const CartContext = React.createContext({});
 
 const CartProvider = ({ test, children }) => {
 
@@ -42,16 +42,16 @@ const CartProvider = ({ test, children }) => {
 
     return (
 
-        <cartContext.Provider 
+        <CartContext.Provider 
         value={{products, addProduct, countProducts, removeProduct, isEmptyCart}}>
 
         {children}
 
-        </cartContext.Provider>
+        </CartContext.Provider>
 
     )
 
 
 }
 export {CartProvider};
-export {cartContext};
+export {CartContext};

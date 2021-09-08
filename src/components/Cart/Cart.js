@@ -1,11 +1,11 @@
 import React from "react";
-import {cartContext} from "../../context/CartContext";
+import {CartContext} from "../../Context/CartContext";
 import "./Cart.css"
 import { Link } from 'react-router-dom';
 import {CartList} from "./CartList";
 
 function Cart(){
-    const { countProducts } = React.useContext(cartContext);
+    const { countProducts } = React.useContext(CartContext);
 
     return(
         <div className="container">

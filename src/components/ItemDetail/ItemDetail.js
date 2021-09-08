@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import {cartContext}  from "../../context/CartContext";
+import {CartContext}  from "../../Context/CartContext";
 import { ItemCount } from "../ItemCount/ItemCount";
 
 
 function ItemDetail(props) {
 
   const product = props.product;
-  const {products , addProduct} = useContext(cartContext);
+  const {products , addProduct} = useContext(CartContext);
   
   const [dataCartCount, setDataCartCount] = React.useState(1);
 

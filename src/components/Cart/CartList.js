@@ -1,10 +1,10 @@
 import React from "react";
-import {cartContext} from "../../context/CartContext";
+import {CartContext} from "../../Context/CartContext";
 import {CartItemList} from "./CartItemList";
 
 
 function CartList() {
-    const {products , removeProduct} = React.useContext(cartContext);
+    const {products , removeProduct} = React.useContext(CartContext);
     return (
         <React.Fragment>
         { products.length >0  && (products.map(product => (

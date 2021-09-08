@@ -1,10 +1,10 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import { CartWidget } from "../Cart/CarWidget";
-import {cartContext} from "../../context/CartContext";
+import {CartContext} from "../../Context/CartContext";
 
 function NavBar({searchValue, setSearchValue}){
-  const {countProducts} = React.useContext(cartContext);
+  const {countProducts} = React.useContext(CartContext);
     const onSearchValueChange = (e) => {
       console.log(e.target.value);
       setSearchValue(e.target.value);
