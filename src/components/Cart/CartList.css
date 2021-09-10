@@ -1,0 +1,19 @@
+
+.cart-item-list-div{
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.cart-item-list-button{
+    text-align: center;
+    color: white;
+    background-color: #00AEEF;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 20rem;
+}

@@ -3,15 +3,19 @@
 .cart-widget{
     align-items: center;
     display: flex;
+    text-decoration: none;
 }
 
 .img-navbar-cart{
     width: 40px;
     height: 40px;
+    text-decoration: none;
 }
 
 .cart-widget-text{
     font-size: 12px;
     font-weight: bold;
     float: inline-start;
+    text-decoration: none;
+    color: black;
 }

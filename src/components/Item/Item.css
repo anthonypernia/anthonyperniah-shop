@@ -13,3 +13,21 @@
     height: 15rem;
     align-self: center;
 }
+
+
+.card-text-inner{
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.card-button-inner{
+    text-align: center;
+    color: white;
+    background-color: #00AEEF;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 7rem;
+
+}

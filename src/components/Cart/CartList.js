@@ -1,10 +1,11 @@
 import React from "react";
 import {CartContext} from "../../Context/CartContext";
 import {CartItemList} from "./CartItemList";
+import "./CartList.css"
 
 
 function CartList() {
-    const {products , removeProduct} = React.useContext(CartContext);
+    const {products , removeProduct, clearCart} = React.useContext(CartContext);
     return (
         <React.Fragment>
         { products.length >0  && (products.map(product => (
@@ -14,6 +15,10 @@ function CartList() {
                     </div>
         ))) )
         }
+        <div className="cart-item-list-div">
+        <button onClick={()=>clearCart()} className="btn btn-primary cart-item-list-button">Remove all items from your cart</button>
+        </div>
+        
         </React.Fragment>
     );
 

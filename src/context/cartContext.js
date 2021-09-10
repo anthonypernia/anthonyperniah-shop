@@ -40,10 +40,14 @@ const CartProvider = ({ test, children }) => {
         setProducts(newProducts);
     }
 
+    const clearCart = () => {
+        setProducts([]);
+    }
+
     return (
 
         <CartContext.Provider 
-        value={{products, addProduct, countProducts, removeProduct, isEmptyCart}}>
+        value={{products, addProduct, countProducts, removeProduct, isEmptyCart, clearCart}}>
 
         {children}
 
