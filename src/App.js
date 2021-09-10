@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import {ItemListContainer} from './components/ItemList/ItemListContainer';
 import {NavBar} from './components/NavBar/NavBar';
 import { ItemDetailContainer } from './components/ItemDetail/ItemDetailContainer';
-import { CartProvider } from './Context/CartContext';
+import { CartProvider } from './Context/cartContext';
 import { CartContainer } from './components/Cart/CartContainer';
 import './App.css';
 
