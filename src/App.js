@@ -9,12 +9,7 @@ import './App.css';
 
 
 function App() {
-  const [dataCart, setDataCart] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
-  const [dataProducts, setDataProducts] = React.useState();
-
-
-  
   return (
     <CartProvider >
       <BrowserRouter>

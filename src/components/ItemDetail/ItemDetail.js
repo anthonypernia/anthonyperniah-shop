@@ -8,7 +8,7 @@ import { ItemCount } from "../ItemCount/ItemCount";
 function ItemDetail(props) {
 
   const product = props.product;
-  const {products , addProduct} = useContext(CartContext);
+  const { addProduct} = useContext(CartContext);
   
   const [dataCartCount, setDataCartCount] = React.useState(1);
 
@@ -18,7 +18,7 @@ function ItemDetail(props) {
       <img
         className="col-6 card-img-top"
         src={product.picture_url}
-        alt="Card image cap"
+        alt=""
       />
       <div className="col-6 card-body ">
         <h5 className="card-title d-flex justify-content-center">{product.title}</h5>

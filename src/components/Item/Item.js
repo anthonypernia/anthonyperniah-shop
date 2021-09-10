@@ -4,7 +4,7 @@ import {CartContext}  from "../../Context/cartContext";
 import './Item.css'
 
 function Item(props){
-    const {products , addProduct} = React.useContext(CartContext);
+    const {addProduct} = React.useContext(CartContext);
     const product = props.product;
     return (
         <div className="col-3 container">
