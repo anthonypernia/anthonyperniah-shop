@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {CartContext}  from "../../Context/cartContext";
+import {CartContext}  from "../Context/CartContext";
 import './Item.css'
 
 function Item(props){
@@ -17,7 +17,7 @@ function Item(props){
                     {product.stock < 5 ? <p className="card-text text-danger card-text-inner">Hurry up! Only {product.stock} left in stock</p> : <p className="card-text text-success card-text-inner">{product.stock} left in stock</p>}
                     <div className="card-text-inner">
                         <Link to={`/item/${product.id}`} className="btn btn-primary card-button-inner">View</Link>
-                        <Link onClick={ ()=>{ addProduct({...product, quantity: 1, price_total:(product.price) }) } } className="btn btn-primary card-button-inner">Add to cart</Link>
+                        <Link to='' onClick={ ()=>{ addProduct({...product, quantity: 1, price_total:(product.price) }) } } className="btn btn-primary card-button-inner">Add to cart</Link>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import { CartWidget } from "../Cart/CarWidget";
-import {CartContext} from "../../Context/cartContext";
+import {CartContext} from "../Context/CartContext";
 
 function NavBar({searchValue, setSearchValue}){
   const {countProducts} = React.useContext(CartContext);
@@ -28,7 +28,7 @@ function NavBar({searchValue, setSearchValue}){
                 </li>
               </ul>
                 <input onChange={onSearchValueChange} value={searchValue} className="form-control col-4 mr-sm-2" type="search" placeholder="Search your T-shirt" aria-label="Search"/>
-                {countProducts() > 0 && <Link to={`/cart`} style={{ textDecoration: 'none' }}><CartWidget count = {countProducts()}/></Link>}
+                <Link to={`/cart`} style={{ textDecoration: 'none' }}><CartWidget count = {countProducts()}/></Link>
                 
             </div>
           </nav>

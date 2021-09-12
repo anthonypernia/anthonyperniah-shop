@@ -6,6 +6,8 @@ const CartProvider = ({ test, children }) => {
 
     const [products , setProducts] = React.useState([]);
 
+    const [order, setOrder] = React.useState({});
+
     const countProducts = () => {
         let count = 0;
         products.forEach(product => {
@@ -44,17 +46,26 @@ const CartProvider = ({ test, children }) => {
         setProducts([]);
     }
 
+    const totalPrice = () => {
+        let total = 0;
+        products.forEach(product => {
+            total += product.price * product.quantity;
+        });
+        return total;
+    };
+
+    const updateOrder = (order) => {
+        setOrder(order);
+    };
+
+    
+
     return (
-
         <CartContext.Provider 
-        value={{products, addProduct, countProducts, removeProduct, isEmptyCart, clearCart}}>
-
+        value={{products, addProduct, countProducts, removeProduct, isEmptyCart, clearCart, totalPrice, order, updateOrder}}>
         {children}
-
         </CartContext.Provider>
-
     )
-
 
 }
 export {CartProvider};
