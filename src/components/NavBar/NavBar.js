@@ -6,7 +6,6 @@ import {CartContext} from "../Context/CartContext";
 function NavBar({searchValue, setSearchValue}){
   const {countProducts} = React.useContext(CartContext);
     const onSearchValueChange = (e) => {
-      console.log(e.target.value);
       setSearchValue(e.target.value);
     }
     

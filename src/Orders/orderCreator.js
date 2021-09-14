@@ -1,12 +1,11 @@
 import { insertOrderToCloud } from "../DataCloud/InsertOrderToCloud";
 
-const orderCreator = (products, order, updateOrder, totalPrice) => {
+const orderCreator = (products, order, updateOrder, totalPrice, user) => {
 
     let buyerObj = {};
-    buyerObj.name = "anthony"
-    buyerObj.phone = "123456789"
-    buyerObj.address = "123 street"
-    buyerObj.email = "anthonyperniah@gmail.com"
+    buyerObj.name = user.name;
+    buyerObj.phone = user.phone;
+    buyerObj.email = user.email;
     buyerObj.dateOrder = new Date();
     buyerObj.totalPrice = totalPrice();
     order.buyer = buyerObj;
@@ -18,7 +17,10 @@ const orderCreator = (products, order, updateOrder, totalPrice) => {
         item.quantity = product.quantity;
         order.items.push(item);
     });
-    
+
+
+
+    console.log(products);
     insertOrderToCloud(order, updateOrder);
 };
 

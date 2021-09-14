@@ -5,6 +5,7 @@ import {NavBar} from './components/NavBar/NavBar';
 import { ItemDetailContainer } from './components/ItemDetail/ItemDetailContainer';
 import { CartProvider } from './components/Context/CartContext';
 import { CartContainer } from './components/Cart/CartContainer';
+import { DataUserEnterContainer } from './components/DataUserEnter/DataUserEnterContainer';
 import './App.css';
 
 
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/cart/">
             <CartContainer />
+          </Route>
+          <Route exact path="/datauserenter/">
+            <DataUserEnterContainer />
           </Route>
         </Switch>
       </BrowserRouter>

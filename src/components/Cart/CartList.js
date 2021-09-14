@@ -1,12 +1,18 @@
 import React from "react";
 import {CartContext} from "../Context/CartContext";
 import {CartItemList} from "./CartItemList";
+import { Link } from "react-router-dom";
 import "./CartList.css"
 import { orderCreator } from "../../Orders/orderCreator"
 
 function CartList() {
-    const {products , removeProduct, clearCart, totalPrice, updateOrder, order} = React.useContext(CartContext);
-
+    const {products , 
+            removeProduct, 
+            order, 
+            clearCart, 
+            totalPrice, 
+            updateOrder, 
+            user} = React.useContext(CartContext);
 
     return (
         <React.Fragment>
@@ -19,12 +25,24 @@ function CartList() {
         }
         <div className="cart-item-list-div">
         <button onClick={()=>clearCart()} className="btn btn-primary cart-item-list-button">Remove all items from your cart</button>
-        <button onClick={()=>orderCreator(products, order, updateOrder, totalPrice)} className="btn btn-primary cart-item-list-button">Avanzar con la compra</button>
+        {user.name ? <button onClick={()=>
+                        orderCreator(products, 
+                                        order, 
+                                        updateOrder, 
+                                        totalPrice,
+                                        user
+                                        )} 
+                                        className="btn btn-primary cart-item-list-button">Avanzar con la compra</button>
+                                    : <Link to={`/datauserenter/`}  
+                                        className="btn btn-primary cart-item-list-button"> 
+                                                    (Carga tus datos antes de avanzar la compra) </Link>}
         </div>
         
         </React.Fragment>
     );
 
     }
-
+//<Link to={`/cart/`} onClick={ ()=>{ 
+//    addProduct({...product, quantity: dataCartCount, price_total:(product.price*dataCartCount) }) } } 
+//      className="col-2 btn btn-outline-dark ml-4 mr-4 mt-4"> Buy </Link>:''}
 export {CartList};
