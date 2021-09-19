@@ -1,0 +1,13 @@
+
+.spinner-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #585f63;
+    animation: spin 1s linear infinite;
+}

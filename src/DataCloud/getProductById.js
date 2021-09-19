@@ -2,8 +2,8 @@
 import { getDatabase } from './firebaseAuth'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
-const getProductsById = async (product, setProduct, setLoading, id) => {
-        setLoading(true);
+const getProductsById = async (product, setProduct, setOpenLoadingModal, id) => {
+        setOpenLoadingModal(true);
         const productsCollection = collection(getDatabase(), 'products');
         const productsQuery = query(productsCollection, where('id', '==', id));
         try{
@@ -14,7 +14,7 @@ const getProductsById = async (product, setProduct, setLoading, id) => {
             
           }));
           setProduct(product[0]);
-          setLoading(false);
+          setOpenLoadingModal(false);
         } catch(error){
           console.log(error);
         }

@@ -4,6 +4,8 @@ const CartContext = React.createContext({});
 
 const CartProvider = ({ test, children }) => {
 
+    const [openLoadingModal, setOpenLoadingModal] = React.useState(true);
+
     const [products , setProducts] = React.useState([]);
 
     const [order, setOrder] = React.useState({});
@@ -96,7 +98,9 @@ const CartProvider = ({ test, children }) => {
                 updateOrder,
                 setUser,
                 isEmptyUser,
-                user
+                user,
+                openLoadingModal,
+                setOpenLoadingModal
                 }}>
         {children}
         </CartContext.Provider>

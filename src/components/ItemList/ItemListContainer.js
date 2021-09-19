@@ -3,21 +3,22 @@ import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
 import {getAllProducts} from '../../DataCloud/getAllProducts'
 import {getProductsByCategory} from '../../DataCloud/getProductsByCategory'
+import {CartContext} from '../Context/CartContext'
 
 function ItemListContainer({searchValue}) {
   const { categoryId } = useParams();
   const [products, setProducts] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
+  const {openLoadingModal, setOpenLoadingModal} = React.useContext(CartContext);
  
     React.useEffect(() => {
       if(categoryId){
-        getProductsByCategory(categoryId, setProducts, setLoading);
+        getProductsByCategory(categoryId, setProducts, setOpenLoadingModal);
       } else {
-        getAllProducts(setProducts, setLoading);
+        getAllProducts(setProducts, setOpenLoadingModal);
       }
     }, [categoryId]);
 
-  return loading ? <h2 className="col-12 d-flex align-items-center" >Loading..</h2> : (<ItemList dataProducts={products.filter(
+  return(<ItemList dataProducts={products.filter(
     (product) => product.title.toLowerCase().includes(searchValue.toLowerCase() )
   )} />);
 }
