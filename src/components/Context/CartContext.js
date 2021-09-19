@@ -1,12 +1,20 @@
 import React from "react";
+import { useLocalStorage } from "./useLocalStorage";
 //
 const CartContext = React.createContext({});
 
-const CartProvider = ({ test, children }) => {
+const CartProvider = ({  children }) => {
+
+    const {
+        products,
+        saveProducts: setProducts ,
+        error,
+      } = useLocalStorage( []);
 
     const [openLoadingModal, setOpenLoadingModal] = React.useState(true);
+    const [openFormModal, setOpenFormModal] = React.useState(false);
 
-    const [products , setProducts] = React.useState([]);
+    //const [products , setProducts] = React.useState([]);
 
     const [order, setOrder] = React.useState({});
 
@@ -26,7 +34,6 @@ const CartProvider = ({ test, children }) => {
     }
     
     const addProduct = (product) => {
-
         const newProducts = [...products];
         const index = newProducts.findIndex(p => p.id === product.id);
         if (index === -1) {
@@ -36,6 +43,7 @@ const CartProvider = ({ test, children }) => {
         }
 
         setProducts(newProducts);
+
     }
 
 
@@ -100,7 +108,9 @@ const CartProvider = ({ test, children }) => {
                 isEmptyUser,
                 user,
                 openLoadingModal,
-                setOpenLoadingModal
+                setOpenLoadingModal,
+                openFormModal, 
+                setOpenFormModal
                 }}>
         {children}
         </CartContext.Provider>

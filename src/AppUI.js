@@ -14,9 +14,10 @@ import './App.css';
 
 function AppUI() {
   const [searchValue, setSearchValue] = React.useState('');
-  const {openLoadingModal, setOpenLoadingModal} = React.useContext(CartContext);
+  const {openLoadingModal, setOpenLoadingModal, openFormModal, setOpenFormModal} = React.useContext(CartContext);
 
-
+  console.log(openLoadingModal,"loading");
+  console.log(openFormModal,"form");
   return (
       <BrowserRouter>
         <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -33,13 +34,14 @@ function AppUI() {
           <Route exact path="/cart/">
             <CartContainer />
           </Route>
-          <Route exact path="/datauserenter/">
-            <DataUserEnterContainer />
-          </Route>
         </Switch>
-        {openLoadingModal && 
+        {openLoadingModal&& 
                 <ModalLoading>
-                    <LoadingSpinner />
+                  {openLoadingModal && <LoadingSpinner />}
+                </ModalLoading>}
+        {openFormModal && 
+        <ModalLoading>
+                {openFormModal && <DataUserEnterContainer />}
                 </ModalLoading>}
       </BrowserRouter>
   );

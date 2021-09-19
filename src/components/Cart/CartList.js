@@ -12,11 +12,19 @@ function CartList() {
             clearCart, 
             totalPrice, 
             updateOrder, 
+            setOpenFormModal,
             user} = React.useContext(CartContext);
+
+            
+    
+    const onClickFormModal = () => {
+        setOpenFormModal(true);
+    }
 
     return (
         <React.Fragment>
         { products.length >0  && (products.map(product => (
+            
             product.quantity > 0 && (
                         <div className="row" key = {product.id}>
                             <CartItemList product={product} removeProduct={removeProduct}/>
@@ -33,11 +41,11 @@ function CartList() {
                                         user
                                         )} 
                                         className="btn btn-primary cart-item-list-button">Avanzar con la compra</button>
-                                    : <Link to={`/datauserenter/`}  
+                                    : <button onClick={() => onClickFormModal()}
                                         className="btn btn-primary cart-item-list-button"> 
-                                                    (Carga tus datos antes de avanzar la compra) </Link>}
+                                                    (Carga tus datos antes de avanzar la ) </button>}
         </div>
-        
+
         </React.Fragment>
     );
 

@@ -1,40 +1,83 @@
 import React from "react";
 import {CartContext} from "../Context/CartContext";
 import { Link } from "react-router-dom";
+import "./DataUserEnterContainer.css"
+import {useHistory} from 'react-router-dom';
+import {useCallback} from 'react';
 
 function DataUserEnterContainer() {
 
-    const { user, setUser , isEmptyUser} = React.useContext(CartContext);
+    const { user, setUser , setOpenLoadingModal, openFormModal, setOpenFormModal} = React.useContext(CartContext);
 
-    const [userReady, setUserReady] = React.useState(false);
+    setOpenLoadingModal(false);
+    const history = useHistory();
+    const userCurrent ={
+        name: "",
+        email: "",
+        phone: "",
+    }
 
     const getNameFromUser = (e) => {
-        user.name = e.target.value;
+        userCurrent.name = e.target.value;
     };
 
     const getPhoneFromUser = (e) => {
-        user.phone = e.target.value;
+        userCurrent.phone = e.target.value;
     };
 
     const getEmailFromUser = (e) => {
-        user.email = e.target.value;
+        userCurrent.email = e.target.value;
     };
 
-    const setDataUser = () => { 
-        setUser(user);
-    };
+    const onCancel = () => {
+        setOpenFormModal(false);
+      };
+    
+      const onSubmit = (e) => {
+        e.preventDefault();
+        if (userCurrent.name.length>1 && userCurrent.phone.length>1 && userCurrent.email.length>1) {
+            setUser(userCurrent);
+            setOpenFormModal(false);
+            //history.push("/cart/");
+        }else{
+            console.log("Error")
+        }
 
-
-
-    return <div>
-        <input onChange={getNameFromUser} placeholder="Name"></input>
-        <input onChange={getEmailFromUser} placeholder="E-mail"></input>
-        <input onChange={getPhoneFromUser} placeholder="Phone"></input>
-        
-        <Link to={`/cart/`}  onClick={()=> setDataUser()} 
-                    className="btn btn-primary cart-item-list-button"> Enviar </Link>
-    </div>;
-}
-
+      };
+    
+      return (
+        <form onSubmit={onSubmit}>
+          <label>Ingrese sus datos de usuario</label>
+          <input
+            type="text"
+            onChange={getNameFromUser}
+            placeholder="Nombre"
+          />
+        <input
+            type="mail"
+            onChange={getEmailFromUser}
+            placeholder="Mail"
+          />
+        <input
+            type="text"
+            onChange={getPhoneFromUser}
+            placeholder="telefono"
+          />
+          <div className="TodoForm-buttonContainer">
+            <button
+              type="button"
+              className="TodoForm-button TodoForm-button-cancel"
+              onClick={onCancel}
+            >
+              Cancelar
+            </button>
+    
+            <button className="TodoForm-button TodoForm-button-add" type="submit">
+              Añadir
+            </button>
+          </div>
+        </form>
+      );
+    }
 
 export {DataUserEnterContainer}

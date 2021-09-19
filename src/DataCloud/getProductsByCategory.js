@@ -13,8 +13,9 @@ const getProductsByCategory = async (categoryId, setProducts, setOpenLoadingModa
         ...doc.data()
         
       }));
-      setOpenLoadingModal(false);
+      
       setProducts(dataProducts);
+      setOpenLoadingModal(false);
       
     } catch(error){
       console.log(error);
