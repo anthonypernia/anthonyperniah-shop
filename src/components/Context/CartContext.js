@@ -1,28 +1,29 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
-//
+
 const CartContext = React.createContext({});
 
 const CartProvider = ({  children }) => {
 
     const {
-        products,
-        saveProducts: setProducts ,
-        error,
-      } = useLocalStorage( []);
+        items : products,
+        saveItems: setProducts ,
+      } = useLocalStorage( "cart", []);
+
+      const {
+        items : user,
+        saveItems: setUser ,
+      } = useLocalStorage( "user", {
+        name: "",
+        email: "",
+        phone: "",
+    });
 
     const [openLoadingModal, setOpenLoadingModal] = React.useState(true);
     const [openFormModal, setOpenFormModal] = React.useState(false);
 
-    //const [products , setProducts] = React.useState([]);
-
-    const [order, setOrder] = React.useState({});
-
-    const [user, setUser] = React.useState({
-        id: null,
-        name: null,
-        email: null,
-        phone: null,
+    const [order, setOrder] = React.useState({
+        id: "",
     });
 
     const countProducts = () => {
@@ -41,7 +42,6 @@ const CartProvider = ({  children }) => {
         } else {
             newProducts[index].quantity = newProducts[index].quantity + product.quantity;
         }
-
         setProducts(newProducts);
 
     }
@@ -77,7 +77,15 @@ const CartProvider = ({  children }) => {
 
     const clearCart = () => {
         setProducts([]);
-    }
+    };
+
+    const clearUser = () => {
+        setUser({
+            name: "",
+            email: "",
+            phone: "",
+        });
+    };
 
     const totalPrice = () => {
         let total = 0;
@@ -107,6 +115,7 @@ const CartProvider = ({  children }) => {
                 setUser,
                 isEmptyUser,
                 user,
+                clearUser,
                 openLoadingModal,
                 setOpenLoadingModal,
                 openFormModal, 

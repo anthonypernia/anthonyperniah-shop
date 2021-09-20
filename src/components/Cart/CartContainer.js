@@ -5,9 +5,7 @@ import { CartContext } from "../Context/CartContext";
 
 
 function CartContainer(){
-    
-    const {setOpenLoadingModal} = React.useContext(CartContext);
-        setOpenLoadingModal(false);
+        
     return(
             <Cart/>
     )

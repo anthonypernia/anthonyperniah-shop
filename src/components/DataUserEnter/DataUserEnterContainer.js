@@ -7,7 +7,7 @@ import {useCallback} from 'react';
 
 function DataUserEnterContainer() {
 
-    const { user, setUser , setOpenLoadingModal, openFormModal, setOpenFormModal} = React.useContext(CartContext);
+    const { user, setUser , setOpenLoadingModal, openFormModal, setOpenFormModal, clearUser} = React.useContext(CartContext);
 
     setOpenLoadingModal(false);
     const history = useHistory();
@@ -38,45 +38,63 @@ function DataUserEnterContainer() {
         if (userCurrent.name.length>1 && userCurrent.phone.length>1 && userCurrent.email.length>1) {
             setUser(userCurrent);
             setOpenFormModal(false);
-            //history.push("/cart/");
-        }else{
-            console.log("Error")
         }
 
       };
-    
-      return (
-        <form onSubmit={onSubmit}>
-          <label>Ingrese sus datos de usuario</label>
-          <input
-            type="text"
-            onChange={getNameFromUser}
-            placeholder="Nombre"
-          />
-        <input
-            type="mail"
-            onChange={getEmailFromUser}
-            placeholder="Mail"
-          />
-        <input
-            type="text"
-            onChange={getPhoneFromUser}
-            placeholder="telefono"
-          />
-          <div className="TodoForm-buttonContainer">
-            <button
-              type="button"
-              className="TodoForm-button TodoForm-button-cancel"
-              onClick={onCancel}
-            >
-              Cancelar
-            </button>
-    
-            <button className="TodoForm-button TodoForm-button-add" type="submit">
-              Añadir
-            </button>
-          </div>
-        </form>
+
+      const validateUser = () => {
+        if (user.name.length<1 && user.phone.length<1 && user.email.length<1) {
+            return true;
+        }else{
+            return false;
+        }
+      };
+
+      
+      return ( 
+        <React.Fragment>
+          { validateUser ? 
+              <form onSubmit={onSubmit}>
+              <label>Enter your data</label>
+              <input
+                type="text"
+                onChange={getNameFromUser}
+                placeholder="Name"
+              />
+              <input
+                type="mail"
+                onChange={getEmailFromUser}
+                placeholder="Email"
+              />
+              <input
+                type="text"
+                onChange={getPhoneFromUser}
+                placeholder="Phone"
+              />
+              <div className="TodoForm-buttonContainer">
+                <button
+                  type="button"
+                  className="TodoForm-button TodoForm-button-cancel"
+                  onClick={onCancel}
+                >
+                  Cancel
+                </button>
+
+                <button className="TodoForm-button TodoForm-button-add" type="submit">
+                  Accept
+                </button>
+              </div>
+              </form> 
+              : 
+              <div>
+                  <button className="TodoForm-button TodoForm-button-add" onClick={()=>{onCancel()}} >Cancel</button>
+                  <button className="TodoForm-button TodoForm-button-add" onClick={()=>{clearUser()}} >Delete user</button>
+                  
+              </div>
+              
+        }
+
+        </React.Fragment>
       );
     }
 

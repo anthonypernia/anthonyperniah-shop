@@ -11,17 +11,14 @@ const getProductsByCategory = async (categoryId, setProducts, setOpenLoadingModa
       const dataProducts = productsnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
-        
       }));
-      
+
       setProducts(dataProducts);
       setOpenLoadingModal(false);
-      
     } catch(error){
       console.log(error);
-
     }
   };
-    
-    
+  
 export {getProductsByCategory}
+

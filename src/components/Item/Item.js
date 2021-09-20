@@ -12,7 +12,6 @@ function Item(props){
                 <img className="card-img-top card-img-item" src={product.picture_url} alt="Card image cap"/>
                 <div className="card-body div-card-text-inner">
                     <h5 className="card-title card-text-inner">{product.title}</h5>
-                    <p className="card-text card-text-inner">{product.description}</p>
                     <p className="card-text card-text-inner"><small className="text-muted">{product.price}$</small></p>
                     {product.stock < 5 ? <p className="card-text text-danger card-text-inner">Hurry up! Only {product.stock} left in stock</p> : <p className="card-text text-success card-text-inner">{product.stock} left in stock</p>}
                     <div className="card-text-inner">

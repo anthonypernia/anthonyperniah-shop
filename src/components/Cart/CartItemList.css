@@ -1,0 +1,31 @@
+
+.cart-item-pay-center{
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.img-cart{
+    width: 300px;
+    border-radius: 5px;
+
+}
+
+.cart-item-list-button-remove{
+    text-align: center;
+    color: white;
+    background-color: #00AEEF;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 10rem;
+}

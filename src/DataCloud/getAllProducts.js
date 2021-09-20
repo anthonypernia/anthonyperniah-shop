@@ -10,6 +10,7 @@ const getAllProducts = async (setProducts, setOpenLoadingModal ) => {
       id: doc.id,
       ...doc.data()
     }));
+    
     setProducts(dataProducts);
     setOpenLoadingModal(false);
   }; 

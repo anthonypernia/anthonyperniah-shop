@@ -5,7 +5,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 const getProductsById = async (product, setProduct, setOpenLoadingModal, id) => {
         setOpenLoadingModal(true);
         const productsCollection = collection(getDatabase(), 'products');
-        const productsQuery = query(productsCollection, where('id', '==', id));
+        const productsQuery = query(productsCollection, where('__name__', '==', id));
         try{
           const productsnapshot = await getDocs(productsQuery);
           const product = productsnapshot.docs.map(doc => ({
@@ -16,7 +16,6 @@ const getProductsById = async (product, setProduct, setOpenLoadingModal, id) => 
           setProduct(product[0]);
           setOpenLoadingModal(false);
         } catch(error){
-          console.log(error);
         }
       };
     
