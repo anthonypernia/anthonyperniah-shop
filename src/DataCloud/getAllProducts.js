@@ -2,7 +2,7 @@
 import { getDatabase } from './firebaseAuth'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
-const getAllProducts = async (setProducts, setOpenLoadingModal ) => {
+const getAllProducts = async (setProductsCloud, setOpenLoadingModal ) => {
   setOpenLoadingModal(true);
     const productsCollection = collection(getDatabase(), 'products');
     const productsnapshot = await getDocs(productsCollection);
@@ -11,7 +11,7 @@ const getAllProducts = async (setProducts, setOpenLoadingModal ) => {
       ...doc.data()
     }));
     
-    setProducts(dataProducts);
+    setProductsCloud(dataProducts);
     setOpenLoadingModal(false);
   }; 
 

@@ -39,20 +39,20 @@ function NavBar({ searchValue, setSearchValue }) {
               Home<span className="sr-only">(current)</span>
             </NavLink>
           </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a className="dropdown-item" href="#">
 
           <NavLink to={`/category/${1}`} className="nav-link" href="#">
               White Color<span className="sr-only">(current)</span>
             </NavLink>
 
           </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
+          <div className="dropdown-divider"></div>
+          <a className="dropdown-item" href="#">
 
           <NavLink to={`/category/${2}`} className="nav-link" href="#">
               Black Color<span className="sr-only">(current)</span>
@@ -61,8 +61,6 @@ function NavBar({ searchValue, setSearchValue }) {
           </a>
         </div>
       </li>
-
-
 
           <li className="nav-item">
             <nav className="nav-link" onClick={onClickUserProfile} href="#">

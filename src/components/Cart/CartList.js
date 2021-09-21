@@ -12,6 +12,7 @@ function CartList() {
             clearCart, 
             totalPrice, 
             updateOrder, 
+            getOrderId,
             setOpenFormModal,
             setOpenLoadingModal,
             user} = React.useContext(CartContext);
@@ -21,7 +22,7 @@ function CartList() {
     const onClickFormModal = () => {
         setOpenFormModal(true);
     }
-    console.log(order, "order_before");
+
     return (
         <React.Fragment>
             <p className="cart-products-title">Products in Cart</p>
@@ -35,7 +36,7 @@ function CartList() {
         }
         <div className="cart-item-list-div">
         <button onClick={()=>clearCart()} className="btn btn-primary cart-item-list-button">Remove all items from your cart</button>
-        {user.name ? <Link to={`/payment/${user.id}`}  className="btn btn-primary cart-item-list-button">Continue to pay</Link>
+        {user.name ? <Link to={`/payment/${getOrderId()}`}  className="btn btn-primary cart-item-list-button">Continue to pay</Link>
                                     : <button onClick={() => onClickFormModal()}
                                         className="btn btn-primary cart-item-list-button"> 
                                                     You must register before continue </button>}

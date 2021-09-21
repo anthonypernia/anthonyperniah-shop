@@ -3,23 +3,19 @@ import { getDatabase } from './firebaseAuth'
 import { collection, addDoc, getDocs, query, where, updateDoc , doc, setDoc } from 'firebase/firestore';
 
 
-const insertOrderToCloud = async (order, setOrder) => {
-  const validateInsertOrder = async (order) => {
-    let orderGetting=''
-    const ordersCollection = collection(getDatabase(), 'orders');
-    
-    if (order.id) {
-      let docRef = await setDoc(doc(ordersCollection, order.id), order);
-    }else{
-      let docRef = await addDoc(ordersCollection, order)
-      order.id = docRef.id
-      setOrder(order)
-    };
-  };
-
+const insertOrderToCloud = async (order, setOrder, setOpenLoadingModal) => {
   try {
     
-    const docRef = await validateInsertOrder(order);
+    let orderGetting=''
+    const ordersCollection = collection(getDatabase(), 'orders');
+    const docRef = await addDoc(collection(getDatabase(), "orders"), order);
+    console.log("Document written with ID: ", docRef.id);
+    let newOrder = {
+        ...order,
+        id: docRef.id
+    }
+    setOrder(newOrder)
+    setOpenLoadingModal(false)
   } catch (e) {
     console.error("Error adding document: ", e);
   }

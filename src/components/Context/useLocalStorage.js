@@ -28,14 +28,11 @@ function useLocalStorage(valueCart, initialValue) {
     },[]);
   
     const saveItems = (newProducts) => {
-        console.log("useLocalStorage",items)
       try {
         const stringifiedItem = JSON.stringify(newProducts);
         localStorage.setItem(valueCart, stringifiedItem);
         setItem(newProducts);
-        console.log("Products saved");
       } catch (error) {
-          console.log("Error savingitems", error);
         setError(true)
       }
     };

@@ -10,12 +10,13 @@ import {CartContext} from './components/Context/CartContext';
 import { LoadingSpinner } from "./components/ModalLoading/LoadingSpinner";
 import { PaymentGate } from "./components/PaymentGate/PaymentGate";
 import { insertDataToCloud } from "./DataCloud/DataInsert"
+import { PaySimulator } from "./components/PaymentGate/PaySimulator";
 import './App.css';
 
 
 function AppUI() {
   const [searchValue, setSearchValue] = React.useState('');
-  const {openLoadingModal, setOpenLoadingModal, openFormModal, setOpenFormModal} = React.useContext(CartContext);
+  const {openLoadingModal, openFormModal, paySimulator} = React.useContext(CartContext);
 
   return (
       <BrowserRouter>
@@ -37,13 +38,11 @@ function AppUI() {
             <PaymentGate />
           </Route>
         </Switch>
-        {openLoadingModal&& 
+        {(openLoadingModal || openFormModal || paySimulator)&& 
                 <ModalLoading>
                   {openLoadingModal && <LoadingSpinner />}
-                </ModalLoading>}
-        {openFormModal && 
-        <ModalLoading>
-                {openFormModal && <DataUserEnterContainer />}
+                  {openFormModal && <DataUserEnterContainer />}
+                  {paySimulator && <PaySimulator />}
                 </ModalLoading>}
       </BrowserRouter>
   );

@@ -2,7 +2,7 @@
 import { getDatabase } from './firebaseAuth'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
-const getProductsByCategory = async (categoryId, setProducts, setOpenLoadingModal) => {
+const getProductsByCategory = async (categoryId, setProductsCloud, setOpenLoadingModal) => {
     setOpenLoadingModal(true);
     const productsCollection = collection(getDatabase(), 'products');
     const productsQuery = query(productsCollection, where('category', '==', categoryId));
@@ -13,7 +13,7 @@ const getProductsByCategory = async (categoryId, setProducts, setOpenLoadingModa
         ...doc.data()
       }));
 
-      setProducts(dataProducts);
+      setProductsCloud(dataProducts);
       setOpenLoadingModal(false);
     } catch(error){
       console.log(error);

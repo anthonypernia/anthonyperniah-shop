@@ -1,17 +1,14 @@
 import React from "react";
 import {CartContext} from "../Context/CartContext";
-import { Link } from "react-router-dom";
 import "./DataUserEnterContainer.css"
-import {useHistory} from 'react-router-dom';
-import {useCallback} from 'react';
 
 function DataUserEnterContainer() {
 
-    const { user, setUser , setOpenLoadingModal, openFormModal, setOpenFormModal, clearUser} = React.useContext(CartContext);
+    const {setUser , setOpenLoadingModal, setOpenFormModal, isEmptyUser ,clearUser} = React.useContext(CartContext);
 
     setOpenLoadingModal(false);
-    const history = useHistory();
     const userCurrent ={
+        id: "99999999",
         name: "",
         email: "",
         phone: "",
@@ -28,6 +25,9 @@ function DataUserEnterContainer() {
     const getEmailFromUser = (e) => {
         userCurrent.email = e.target.value;
     };
+    const getEmailFromUserValidate = (e) => {
+      userCurrent.emailValidate = e.target.value;
+    };
 
     const onCancel = () => {
         setOpenFormModal(false);
@@ -35,25 +35,16 @@ function DataUserEnterContainer() {
     
       const onSubmit = (e) => {
         e.preventDefault();
-        if (userCurrent.name.length>1 && userCurrent.phone.length>1 && userCurrent.email.length>1) {
+        if (userCurrent.name.length>1 && userCurrent.phone.length>1 && userCurrent.email.length>1 && userCurrent.emailValidate === userCurrent.email){
             setUser(userCurrent);
             setOpenFormModal(false);
         }
 
       };
 
-      const validateUser = () => {
-        if (user.name.length<1 && user.phone.length<1 && user.email.length<1) {
-            return true;
-        }else{
-            return false;
-        }
-      };
-
-      
       return ( 
         <React.Fragment>
-          { validateUser ? 
+          { isEmptyUser() ? 
               <form onSubmit={onSubmit}>
               <label>Enter your data</label>
               <input
@@ -62,9 +53,14 @@ function DataUserEnterContainer() {
                 placeholder="Name"
               />
               <input
-                type="mail"
+                type="email"
                 onChange={getEmailFromUser}
-                placeholder="Email"
+                placeholder="Please enter Email"
+              />
+              <input
+                type="email"
+                onChange={getEmailFromUserValidate}
+                placeholder="Please enter Email again"
               />
               <input
                 type="text"

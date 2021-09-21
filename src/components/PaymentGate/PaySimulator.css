@@ -1,0 +1,29 @@
+
+
+.loading-pay-simulator-div{
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title-pay-simulator{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.subtitle-pay-simulator{
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.spinner-center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}

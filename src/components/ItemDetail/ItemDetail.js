@@ -13,7 +13,6 @@ function ItemDetail(props) {
   const [dataCartCount, setDataCartCount] = React.useState(1);
 
 
-
   return (
     <div className="card container">
       <div className="row">

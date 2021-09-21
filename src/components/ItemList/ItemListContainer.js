@@ -7,18 +7,18 @@ import {CartContext} from '../Context/CartContext'
 
 function ItemListContainer({searchValue}) {
   const { categoryId } = useParams();
-  const [products, setProducts] = React.useState([]);
-  const {openLoadingModal, setOpenLoadingModal} = React.useContext(CartContext);
- 
+  const [productsCloud, setProductsCloud,] = React.useState([]);
+  const {openLoadingModal, setOpenLoadingModal, user} = React.useContext(CartContext);
+
     React.useEffect(() => {
       if(categoryId){
-        getProductsByCategory(categoryId, setProducts, setOpenLoadingModal);
+        getProductsByCategory(categoryId, setProductsCloud, setOpenLoadingModal);
       } else {
-        getAllProducts(setProducts, setOpenLoadingModal);
+        getAllProducts(setProductsCloud, setOpenLoadingModal);
       }
     }, [categoryId]);
 
-  return(<ItemList dataProducts={products.filter(
+  return(<ItemList dataProducts={productsCloud.filter(
     (product) => product.title.toLowerCase().includes(searchValue.toLowerCase() )
   )} />);
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
+import {orderCreator} from "../../Orders/orderCreator"
 
 const CartContext = React.createContext({});
 
@@ -10,21 +11,28 @@ const CartProvider = ({  children }) => {
         saveItems: setProducts ,
       } = useLocalStorage( "cart", []);
 
-      const {
-        items : user,
-        saveItems: setUser ,
-      } = useLocalStorage( "user", {
+//      const {
+//        items : user,
+//        saveItems: setUser ,
+//      } = useLocalStorage( "user", {
+//        name: "",
+//        email: "",
+//        phone: "",
+//    });
+
+    const [ user,setUser ] = React.useState( {
         name: "",
         email: "",
         phone: "",
     });
 
+
+    const [paySimulator, setPaySimulator] = React.useState(false);
+
     const [openLoadingModal, setOpenLoadingModal] = React.useState(true);
     const [openFormModal, setOpenFormModal] = React.useState(false);
 
-    const [order, setOrder] = React.useState({
-        id: "",
-    });
+    const [order, setOrder] = React.useState({id:""});
 
     const countProducts = () => {
         let count = 0;
@@ -43,18 +51,43 @@ const CartProvider = ({  children }) => {
             newProducts[index].quantity = newProducts[index].quantity + product.quantity;
         }
         setProducts(newProducts);
-
+        onUpdateProdducts()
     }
 
+    const getUserId = ()=> {
+        return user.id;
+    }
+
+    const getOrderId = ()=> {
+        return order.id;
+    }
 
     const isEmptyCart = () => {
-        return products.length === 0;
+        try {
+            return products.length === 0;
+        }catch(e) {
+            return true;
+        }
     }
 
+    const onUpdateProdducts = () => {
+        orderCreator(products, 
+          order, 
+          setOrder, 
+          totalPrice,
+          user,
+          setOpenLoadingModal
+          )
+      }
+
     const isEmptyUser = () => {
-        if (user.email.length>2 && user.name.length>2 && user.phone.length>2) {
-            return false;
-        }else {
+        try {
+            if (user.email.length>2 && user.name.length>2 && user.phone.length>2) {
+                return false;
+            }else {
+                return true;
+            }
+        }catch(e) {
             return true;
         }
         
@@ -73,10 +106,12 @@ const CartProvider = ({  children }) => {
             console.log("Product not found");
         }
         setProducts(newProducts);
+        onUpdateProdducts();
     }
 
     const clearCart = () => {
         setProducts([]);
+        onUpdateProdducts();
     };
 
     const clearUser = () => {
@@ -95,11 +130,6 @@ const CartProvider = ({  children }) => {
         return total;
     };
 
-    const updateOrder = (order) => {
-        setOrder(order);
-    };
-
-
     return (
         <CartContext.Provider 
         value={{
@@ -111,7 +141,7 @@ const CartProvider = ({  children }) => {
                 clearCart, 
                 totalPrice, 
                 order, 
-                updateOrder,
+                setOrder,
                 setUser,
                 isEmptyUser,
                 user,
@@ -119,7 +149,11 @@ const CartProvider = ({  children }) => {
                 openLoadingModal,
                 setOpenLoadingModal,
                 openFormModal, 
-                setOpenFormModal
+                setOpenFormModal,
+                paySimulator, 
+                getUserId,
+                getOrderId,
+                setPaySimulator
                 }}>
         {children}
         </CartContext.Provider>

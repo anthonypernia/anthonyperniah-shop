@@ -1,6 +1,8 @@
-import { insertOrderToCloud } from "../DataCloud/InsertOrderToCloud";
+import { insertOrderToCloud } from "../DataCloud/insertOrderToCloud";
+import { updateOrderToCloud } from "../DataCloud/updateOrderToCloud";
 
-const orderCreator = (products, order, updateOrder, totalPrice, user) => {
+const orderCreator = (products, order, setOrder, totalPrice, user, setOpenLoadingModal) => {
+    setOpenLoadingModal(true);
     let buyerObj = {};
     buyerObj.name = user.name;
     buyerObj.phone = user.phone;
@@ -16,8 +18,12 @@ const orderCreator = (products, order, updateOrder, totalPrice, user) => {
         item.quantity = product.quantity;
         order.items.push(item);
     });
-    console.log(order);
-    insertOrderToCloud(order, updateOrder);
+    if (order.id.length > 2) {
+        updateOrderToCloud(order, setOpenLoadingModal);
+    }else{
+        insertOrderToCloud(order, setOrder, setOpenLoadingModal);
+    }
+    
 };
 
 export {orderCreator}

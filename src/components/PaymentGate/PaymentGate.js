@@ -5,19 +5,31 @@ import { Link } from "react-router-dom";
 import { orderCreator } from "../../Orders/orderCreator"
 import { PaymentCard } from "./PaymentCard";
 
-function PaymentGate(props) {
+function PaymentGate() {
 
     const {products , 
-        removeProduct, 
         order, 
         clearCart, 
         totalPrice, 
         setOrder, 
-        setOpenFormModal,
         setOpenLoadingModal,
+        paySimulator, 
+        setPaySimulator,
         user} = React.useContext(CartContext);
 
-        setOpenLoadingModal(false)
+        setOpenLoadingModal(false);
+
+
+
+       const wait10SecToSetPayment = () => {
+        setTimeout(() => {
+            setPaySimulator(false)
+            console.log("PaySimulator", paySimulator)
+        }, 3000);
+        setPaySimulator(true)
+        console.log("PaySimulator", paySimulator)
+        
+    }
 
         const verifyReadyToPay = () => {
             try{
@@ -33,12 +45,14 @@ function PaymentGate(props) {
         }
 
         const pay = () => {
+            wait10SecToSetPayment();
             orderCreator(products, 
                 order, 
                 setOrder, 
                 totalPrice,
                 user
                 )
+                //clearCart();
         };
 
   return (
