@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/anthonyperniah-shop/static/css/main.74477c81.chunk.css",
+    "main.js": "/anthonyperniah-shop/static/js/main.571a2ce4.chunk.js",
+    "main.js.map": "/anthonyperniah-shop/static/js/main.571a2ce4.chunk.js.map",
+    "runtime-main.js": "/anthonyperniah-shop/static/js/runtime-main.30112229.js",
+    "runtime-main.js.map": "/anthonyperniah-shop/static/js/runtime-main.30112229.js.map",
+    "static/js/2.176e6eb4.chunk.js": "/anthonyperniah-shop/static/js/2.176e6eb4.chunk.js",
+    "static/js/2.176e6eb4.chunk.js.map": "/anthonyperniah-shop/static/js/2.176e6eb4.chunk.js.map",
+    "static/js/3.2488a578.chunk.js": "/anthonyperniah-shop/static/js/3.2488a578.chunk.js",
+    "static/js/3.2488a578.chunk.js.map": "/anthonyperniah-shop/static/js/3.2488a578.chunk.js.map",
+    "index.html": "/anthonyperniah-shop/index.html",
+    "static/css/main.74477c81.chunk.css.map": "/anthonyperniah-shop/static/css/main.74477c81.chunk.css.map",
+    "static/js/2.176e6eb4.chunk.js.LICENSE.txt": "/anthonyperniah-shop/static/js/2.176e6eb4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.30112229.js",
+    "static/js/2.176e6eb4.chunk.js",
+    "static/css/main.74477c81.chunk.css",
+    "static/js/main.571a2ce4.chunk.js"
+  ]
+}
