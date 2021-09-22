@@ -9,11 +9,11 @@ function PaymentGate() {
 
     const {products , 
         order, 
-        clearCart, 
         totalPrice, 
         setOrder, 
         setOpenLoadingModal,
         paySimulator, 
+        clearCart,
         setPaySimulator,
         user} = React.useContext(CartContext);
 
@@ -46,13 +46,14 @@ function PaymentGate() {
 
         const pay = () => {
             wait10SecToSetPayment();
-            orderCreator(products, 
+            orderCreator("paid", products, 
                 order, 
                 setOrder, 
                 totalPrice,
-                user
+                user,
+                setOpenLoadingModal
                 )
-                //clearCart();
+                clearCart();
         };
 
   return (

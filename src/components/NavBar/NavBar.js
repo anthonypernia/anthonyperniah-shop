@@ -40,25 +40,25 @@ function NavBar({ searchValue, setSearchValue }) {
             </NavLink>
           </li>
         <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
-        </a>
+        </span>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a className="dropdown-item" href="#">
+          <span className="dropdown-item" href="#">
 
           <NavLink to={`/category/${1}`} className="nav-link" href="#">
               White Color<span className="sr-only">(current)</span>
             </NavLink>
 
-          </a>
+          </span>
           <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="#">
+          <span className="dropdown-item" href="#">
 
           <NavLink to={`/category/${2}`} className="nav-link" href="#">
               Black Color<span className="sr-only">(current)</span>
             </NavLink>
 
-          </a>
+          </span>
         </div>
       </li>
 

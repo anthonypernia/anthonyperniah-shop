@@ -51,7 +51,7 @@ const CartProvider = ({  children }) => {
             newProducts[index].quantity = newProducts[index].quantity + product.quantity;
         }
         setProducts(newProducts);
-        onUpdateProdducts()
+        onUpdateProdducts(newProducts)
     }
 
     const getUserId = ()=> {
@@ -70,8 +70,10 @@ const CartProvider = ({  children }) => {
         }
     }
 
-    const onUpdateProdducts = () => {
-        orderCreator(products, 
+    const onUpdateProdducts = (newProducts) => {
+        orderCreator(
+            "pending",
+            newProducts, 
           order, 
           setOrder, 
           totalPrice,
@@ -106,7 +108,7 @@ const CartProvider = ({  children }) => {
             console.log("Product not found");
         }
         setProducts(newProducts);
-        onUpdateProdducts();
+        onUpdateProdducts(newProducts);
     }
 
     const clearCart = () => {

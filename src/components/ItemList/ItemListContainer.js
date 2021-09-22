@@ -8,7 +8,7 @@ import {CartContext} from '../Context/CartContext'
 function ItemListContainer({searchValue}) {
   const { categoryId } = useParams();
   const [productsCloud, setProductsCloud,] = React.useState([]);
-  const {openLoadingModal, setOpenLoadingModal, user} = React.useContext(CartContext);
+  const {setOpenLoadingModal} = React.useContext(CartContext);
 
     React.useEffect(() => {
       if(categoryId){

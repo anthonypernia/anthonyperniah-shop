@@ -1,6 +1,5 @@
 import React from "react";
 import  ReactDOM  from "react-dom";
-import { LoadingSpinner } from "./LoadingSpinner";
 import "./ModalLoading.css"
 
 

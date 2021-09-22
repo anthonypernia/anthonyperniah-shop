@@ -9,7 +9,6 @@ import { ModalLoading } from './components/ModalLoading/ModalLoading';
 import {CartContext} from './components/Context/CartContext';
 import { LoadingSpinner } from "./components/ModalLoading/LoadingSpinner";
 import { PaymentGate } from "./components/PaymentGate/PaymentGate";
-import { insertDataToCloud } from "./DataCloud/DataInsert"
 import { PaySimulator } from "./components/PaymentGate/PaySimulator";
 import './App.css';
 

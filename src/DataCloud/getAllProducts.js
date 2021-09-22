@@ -1,6 +1,6 @@
 
 import { getDatabase } from './firebaseAuth'
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 
 const getAllProducts = async (setProductsCloud, setOpenLoadingModal ) => {
   setOpenLoadingModal(true);

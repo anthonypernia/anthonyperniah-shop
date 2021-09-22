@@ -5,7 +5,7 @@ function CartItemList({ product, removeProduct }) {
   return (
     <div className="cart-item-pay-center ">
       <div className="col-md-6">
-        <img className="img-cart" src={product.picture_url} />
+        <img className="img-cart" src={product.picture_url} alt="img" />
       </div>
       <div className="col-md-6 ">
         <br />

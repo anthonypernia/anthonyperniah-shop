@@ -1,6 +1,6 @@
 
 import { getDatabase } from './firebaseAuth'
-import { collection, addDoc, getDocs, query, where, updateDoc , doc, setDoc } from 'firebase/firestore';
+import { collection, doc, setDoc } from 'firebase/firestore';
 
 
 const updateOrderToCloud =  async (order, setOpenLoadingModal) => {

@@ -3,15 +3,11 @@ import {CartContext} from "../Context/CartContext";
 import {CartItemList} from "./CartItemList";
 import { Link } from "react-router-dom";
 import "./CartList.css"
-import { orderCreator } from "../../Orders/orderCreator"
 
 function CartList() {
     const {products , 
             removeProduct, 
-            order, 
             clearCart, 
-            totalPrice, 
-            updateOrder, 
             getOrderId,
             setOpenFormModal,
             setOpenLoadingModal,

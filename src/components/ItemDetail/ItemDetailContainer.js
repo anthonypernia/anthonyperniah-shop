@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 
 function ItemDetailContainer() {
     const [product , setProduct] = React.useState([]);
-    const {openLoadingModal, setOpenLoadingModal} = React.useContext(CartContext);
+    const {setOpenLoadingModal} = React.useContext(CartContext);
     const { id } = useParams();
-    const [error , setError] = React.useState(false);
+    const [setError] = React.useState(false);
 
     
 

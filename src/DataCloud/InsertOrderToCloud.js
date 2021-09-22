@@ -1,13 +1,11 @@
 
 import { getDatabase } from './firebaseAuth'
-import { collection, addDoc, getDocs, query, where, updateDoc , doc, setDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 
 
 const insertOrderToCloud = async (order, setOrder, setOpenLoadingModal) => {
   try {
     
-    let orderGetting=''
-    const ordersCollection = collection(getDatabase(), 'orders');
     const docRef = await addDoc(collection(getDatabase(), "orders"), order);
     console.log("Document written with ID: ", docRef.id);
     let newOrder = {

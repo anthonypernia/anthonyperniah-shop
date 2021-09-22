@@ -9,7 +9,7 @@ function Item(props){
     return (
         <div className="col-3 container">
             <div className="card card-item-main">
-                <img className="card-img-top card-img-item" src={product.picture_url} alt="Card image cap"/>
+                <img className="card-img-top card-img-item" src={product.picture_url} alt=" img "/>
                 <div className="card-body div-card-text-inner">
                     <h5 className="card-title card-text-inner">{product.title}</h5>
                     <p className="card-text card-text-inner"><small className="text-muted">{product.price}$</small></p>
