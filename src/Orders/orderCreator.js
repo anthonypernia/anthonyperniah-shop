@@ -9,6 +9,7 @@ const orderCreator = (state, products, order, setOrder, totalPrice, user, setOpe
     buyerObj.email = user.email;
     buyerObj.dateOrder = new Date();
     buyerObj.totalPrice = totalPrice();
+    order.status = state
     order.buyer = buyerObj;
     order.items = [];
     try{
@@ -23,7 +24,7 @@ const orderCreator = (state, products, order, setOrder, totalPrice, user, setOpe
 
     }
 
-    
+    console.log("---creator-->",order);
     if (order.id.length > 2) {
         updateOrderToCloud(order, setOpenLoadingModal);
     }else{

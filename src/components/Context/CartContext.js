@@ -111,6 +111,11 @@ const CartProvider = ({  children }) => {
         onUpdateProdducts(newProducts);
     }
 
+    const clearOrder = () => {
+        setProducts([]);
+        setOrder({id:""});
+    }
+
     const clearCart = () => {
         setProducts([]);
         onUpdateProdducts();
@@ -155,6 +160,7 @@ const CartProvider = ({  children }) => {
                 paySimulator, 
                 getUserId,
                 getOrderId,
+                clearOrder,
                 setPaySimulator
                 }}>
         {children}

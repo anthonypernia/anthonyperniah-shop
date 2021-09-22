@@ -25,7 +25,7 @@ function ItemDetailContainer() {
       }, []);
     return (
         <React.Fragment>
-            {(product!= undefined) ? <ItemDetail product={product}/> : <div> 
+            {(product!== undefined) ? <ItemDetail product={product}/> : <div> 
               <h2>Error Item not found...</h2>
             <Link to="/"
                     className="btn btn-primary cart-item-list-button">
