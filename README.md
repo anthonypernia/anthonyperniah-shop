@@ -1,4 +1,4 @@
-# Anthony - Shop
+# AnthonyPerniaH - Shop
 
 
 ![fillcart](https://github.com/anthonyperniah/anthonyperniah-shop/blob/master/src/videos/fill_the_cart.gif?raw=true "fillcart")
@@ -46,5 +46,6 @@ Posteriormente luego de llenar el cart con los productos que queremos, tenemos q
 
 
 
-[@AnthonyPerniaH](https://twitter.com/AnthonyPerniaH)
+Twitter [@AnthonyPerniaH](https://twitter.com/AnthonyPerniaH)
+Ig [@AnthonyPerniaH](https://instagram.com/AnthonyPerniaH)
 
